@@ -10,12 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.UBC513.A2.Data.Seat;
-import com.google.appengine.api.datastore.DatastoreService;
-import com.google.appengine.api.datastore.DatastoreServiceFactory;
-import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.EntityNotFoundException;
-import com.google.appengine.api.datastore.Key;
-import com.google.appengine.api.datastore.KeyFactory;
 
 @SuppressWarnings("serial")
 public class ReserveSeat extends HttpServlet {
@@ -32,14 +27,13 @@ public class ReserveSeat extends HttpServlet {
 			throws IOException, ServletException {
 
 		// Get parameters
-		Key FlightKey = KeyFactory.stringToKey(req.getParameter("FlightName"));
 		String SeatID = req.getParameter("SeatID");
 		String FirstName = req.getParameter("FirstName");
 		String LastName = req.getParameter("LastName");
 
 		String forwardTo = "/seatConfirmation.jsp";
 		try {
-			if (!Seat.ReserveSeat(FlightKey, SeatID, FirstName, LastName)) {
+			if (!Seat.ReserveSeat(SeatID, FirstName, LastName)) {
 				// seat not reserved, show error page
 				forwardTo = "/ReserveSeatError.jsp";
 			}

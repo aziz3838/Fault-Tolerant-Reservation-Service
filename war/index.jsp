@@ -28,7 +28,7 @@
 					<li>
 						Flight : <%=e.getKey().getName() %>
 						
-						<%Iterable<Entity> seats = Seat.GetFreeSeats(e.getKey()); %>
+						<%Iterable<Entity> seats = Seat.GetFreeSeats(e.getKey().getName()); %>
 						<ul>
 						<%for(Entity s : seats) { %>
 							<li>

@@ -26,14 +26,15 @@ public class PrepServlet extends HttpServlet {
 		List<Entity> l = new ArrayList<Entity>();
 
 		// Create Flight F2491
-		Entity e = Flight.CreateFlight("F2491", false);
+		String FlightName = "F2491";
+		Entity e = Flight.CreateFlight(FlightName, false);
 		// put flight into datastore
 		ds.put(e);
 
 		// Create seats for flight
 		for (int i = 1; i < 50; i++) {
 			for (int c = 'A'; c <= 'D'; c += 1) {
-				l.add(Seat.CreateSeat(String.format("%d%c", i, c), e.getKey(),
+				l.add(Seat.CreateSeat(String.format("%d%c", i, c), FlightName,
 						false));
 			}
 		}

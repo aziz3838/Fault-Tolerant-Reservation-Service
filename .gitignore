@@ -3,8 +3,9 @@
 
 # All generated files will be in target thanks to the use of maven
 target/
+gwt-unitCache/
 
 # for eclipse users
-.classpath
-.project
+*.classpath
+*.project
 .settings/

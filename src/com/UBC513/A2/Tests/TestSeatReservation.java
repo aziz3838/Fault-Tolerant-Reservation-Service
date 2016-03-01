@@ -22,7 +22,7 @@ public class TestSeatReservation extends HttpServlet {
 			throws IOException, ServletException {
 
 		// Get parameters
-		Key FlightKey = KeyFactory.stringToKey(req.getParameter("FlightName"));
+		String FlightName = req.getParameter("FlightName");
 		String FirstName = req.getParameter("FirstName");
 		String LastName = req.getParameter("LastName");
 
@@ -37,10 +37,10 @@ public class TestSeatReservation extends HttpServlet {
 		int j = i / 4 + 1;
 
 		// create seatID
-		String SeatID = String.format("%d%c", j, c);
+		String SeatID = String.format("%s.%d%c", FlightName, j, c);
 
 		try {
-			if (!Seat.ReserveSeat(FlightKey, SeatID, FirstName, LastName)) {
+			if (!Seat.ReserveSeat(SeatID, FirstName, LastName)) {
 				// Didn't reserve seat, o well, don't show errors for test
 			}
 		} catch (EntityNotFoundException e) {
