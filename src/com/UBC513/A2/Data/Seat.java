@@ -76,25 +76,37 @@ public class Seat {
 			String FirstName, String LastName) throws EntityNotFoundException {
 		DatastoreService ds = DatastoreServiceFactory.getDatastoreService();
 
-		Transaction tx = ds.beginTransaction();
 		int retries = 3;
-		try {
-			Entity e = ds.get(tx, KeyFactory.createKey("Seat", SeatID));
-			
-			if (e.getProperty("PersonSitting") != null)
-				return false;
-
-			e.setProperty("PersonSitting", FirstName + " " + LastName);
-			
-			ds.put(tx, e);
-			tx.commit();
-		} catch (ConcurrentModificationException e) {
-			if (retries == 0) {
-	            return false;
-	        }
-	        // Decrement retry counter
-	        --retries;
+		int timeoutMs = 30;
+		while(retries > 0)
+		{
+			Transaction tx = ds.beginTransaction();
+			try {
+				Entity e = ds.get(tx, KeyFactory.createKey("Seat", SeatID));
+				
+				if (e.getProperty("PersonSitting") != null)
+					return false;
+	
+				e.setProperty("PersonSitting", FirstName + " " + LastName);
+				
+				ds.put(tx, e);
+				tx.commit();
+				return true;
+			} catch (ConcurrentModificationException e) {
+				try {
+					Thread.sleep(timeoutMs);
+					timeoutMs *= 2;
+				} catch (InterruptedException e1) {
+					e1.printStackTrace();
+				}
+		        // Decrement retry counter
+		        retries--;
+			} finally {
+		        if (tx.isActive()) {
+		            tx.rollback();
+		        }
+		    }
 		}
-		return true;
+		return false;
 	}
 }

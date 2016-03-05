@@ -27,7 +27,7 @@ public class TestSeatReservation extends HttpServlet {
 		String LastName = req.getParameter("LastName");
 
 		// use random seat
-		int i = r.nextInt(200);
+		int i = r.nextInt(196);
 
 		// get seat leter
 		char c = 'A';

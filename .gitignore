@@ -3,9 +3,13 @@
 
 # All generated files will be in target thanks to the use of maven
 target/
-gwt-unitCache/
 
 # for eclipse users
-*.classpath
-*.project
+.classpath
+*.class
+.project
 .settings/
+
+# GAE
+war/WEB-INF/appengine-generated/
+gwt-unitCache/
