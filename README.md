@@ -1,29 +1,24 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+This repository is for the practical aspect of the Fault Tolerance graduate course at UBC.
 
-### What is this repository for? ###
+### General Overview ###
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+This assignments require writing code in Java language. The code is a web application project, based on Java Servlets, and more specifically, http Servlets. Http Servlets are classes that handle requests made to different pages of your web application. We are to improve some aspects of the initial code.
 
-### How do I get set up? ###
+### Team Members ###
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+* Aziz
+* Ken
 
-### Contribution guidelines ###
+### Task #1: Implement Transaction Retries ###
 
-* Writing tests
-* Code review
-* Other guidelines
+* TBA
 
-### Who do I talk to? ###
+### Task #2: Resolve Datastore Contention ###
 
-* Repo owner or admin
-* Other community or team contact
+* TBA
+
+### Load Testing ###
+
+* Jmeter...
