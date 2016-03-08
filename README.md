@@ -8,12 +8,12 @@ This assignments require writing code in Java language. The code is a web applic
 
 ### Team Members ###
 
-* Aziz
-* Ken
+* Aziz Alghamdi
 
 ### Task #1: Implement Transaction Retries ###
 
-* TBA
+* Retries mechanism is implemented inside the ReserveSeat function in Seat.java. It is implemented at the transaction level. The number of retries is set as 3 (variable retries). A ReserveSeat is considered successful if the transaction commit doesn't raise any exceptions. 
+* A back-off timeout is also implemented. The first retry happens after 30ms, and every retry after that happens after previous timeout*2 ms.
 
 ### Task #2: Resolve Datastore Contention ###
 
