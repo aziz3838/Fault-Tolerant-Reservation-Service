@@ -34,3 +34,7 @@ This assignments require writing code in Java language. The code is a web applic
 
 ./bin/jmeter -n -t A2LoadTest.jmx
 ```
+
+### Version Control ###
+
+* Git was used (BitBucket). It is easier to see the changes I made through diffs.
