@@ -25,4 +25,12 @@ This assignments require writing code in Java language. The code is a web applic
 
 ### Load Testing ###
 
-* Jmeter...
+* Jmeter was used for load testing. The initial .jmx configuration file runs 20 threads, eaching with a loop count of 10, that are sending requests to /SeatReservation. I added the extra functionalities for convenience:
+    * setUp Thread Group: it sends an HTTP request to /FreeSeats before every test.
+    * Response Assertion (probably not needed): to assert the response from the HTTP requests is 200.
+* Now the load test just involves Jmeter, and it can be invoked from command line (without GUI) as: 
+```
+#!shell
+
+./bin/jmeter -n -t A2LoadTest.jmx
+```
