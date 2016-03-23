@@ -2,7 +2,8 @@
 *~
 
 # All generated files will be in target thanks to the use of maven
-target/
+A2/target/
+A3/target/
 
 # for eclipse users
 .classpath
@@ -11,5 +12,7 @@ target/
 .settings/
 
 # GAE
-war/WEB-INF/appengine-generated/
-gwt-unitCache/
+A2/war/WEB-INF/appengine-generated/
+A2/gwt-unitCache/
+A3/war/WEB-INF/appengine-generated/
+A3/gwt-unitCache/
