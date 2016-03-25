@@ -1,6 +1,7 @@
 package com.UBC513.A3;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -17,11 +18,15 @@ public class SelectSeatServlet extends HttpServlet {
 	public void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException, ServletException {
 
-		String flight = req.getParameter("Flight");
+		String flights[] = new String[4];
+		ArrayList<Iterable<Entity>> flightsSeats = new ArrayList<Iterable<Entity>>();
 		
-		Iterable<Entity> flightSeats = Seat.GetFreeSeats(flight);
-		
-		req.setAttribute("flightSeats", flightSeats);
+		for(int i=0; i<4; i++)
+		{
+			flights[i] = req.getParameter("Flight" + i);
+			flightsSeats.add(Seat.GetFreeSeats(flights[i])); 
+		}
+		req.setAttribute("flightsSeats", flightsSeats);
 		
 		//redirect to index.jsp
 		ServletContext sc = getServletContext();

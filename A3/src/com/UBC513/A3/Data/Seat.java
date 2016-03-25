@@ -82,8 +82,38 @@ public class Seat {
 	public static boolean ReserveSeats(String Flight1, String Flight1Seat,
 			String Flight2, String Flight2Seat, String Flight3,
 			String Flight3Seat, String Flight4, String Flight4Seat,
-			String FirstName, String LastName) throws Exception {
+			String FirstName, String LastName) throws EntityNotFoundException {
+		
+		// Use arrays
+		String flights[] = new String[] {Flight1, Flight2, Flight3, Flight4};
+		String seatIDs[] = new String[] {Flight1Seat, Flight2Seat, Flight3Seat, Flight4Seat};
+		
+		DatastoreService ds = DatastoreServiceFactory.getDatastoreService();
+		// Use cross-group transaction
+		TransactionOptions options = TransactionOptions.Builder.withXG(true);
 
-		throw new Exception("Not Implemented");
+		for (int i = 0; i < 10; i++) {
+			Transaction tx = ds.beginTransaction(options);
+			try {
+				
+				for(int flightIdx=0; flightIdx<4; flightIdx++)
+				{
+					Entity e = ds.get(tx, KeyFactory.createKey(flights[flightIdx], seatIDs[flightIdx]));
+					if (e.getProperty("PersonSitting") != null)
+						return false;
+					e.setProperty("PersonSitting", FirstName + " " + LastName);
+					ds.put(tx, e);
+				}
+
+				tx.commit();
+				return true;
+			} catch (ConcurrentModificationException e) {
+				// continue
+			} finally {
+				if (tx.isActive())
+					tx.rollback();
+			}
+		}
+		throw new ConcurrentModificationException();
 	}
 }

@@ -1,6 +1,7 @@
 package com.UBC513.A3;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -26,15 +27,24 @@ public class ReserveSeatServlet extends HttpServlet {
 			throws IOException, ServletException {
 
 		// Get parameters
-		String Flight = req.getParameter("Flight");		
-		String SeatID = req.getParameter("SeatID");
+		String flights[] = new String[4];
+		String seatIDs[] = new String[4];
+		for(int flightIdx=0; flightIdx<4; flightIdx++)
+		{
+			flights[flightIdx] = req.getParameter("Flight" + flightIdx);
+			seatIDs[flightIdx] = req.getParameter("SeatID" + flightIdx);
+		}
 		
 		String FirstName = req.getParameter("FirstName");
 		String LastName = req.getParameter("LastName");
 		
 		String forwardTo = "/seatConfirmation.jsp";
 		try {
-			if (!Seat.ReserveSeat(Flight, SeatID, FirstName, LastName)) {
+			if (!Seat.ReserveSeats(flights[0], seatIDs[0],
+								   flights[1], seatIDs[1],
+								   flights[2], seatIDs[2],
+							   	   flights[3], seatIDs[3],
+							   	   FirstName, LastName)) {
 				// seat not reserved, show error page
 				forwardTo = "/reserveSeatError.jsp";
 			}

@@ -29,10 +29,12 @@
 						<td>&nbsp;</td>
 						<td><strong>Trip</strong></td>
 					</tr>
+					
+					<% for(int flightIdx=0; flightIdx<4; flightIdx++) { %>
 					<tr>
 						<td>Flight</td>
 						<td>
-							<select name="Flight">
+							<select name="Flight<%=flightIdx%>">
 								<option value="">Please select a flight.</option>
 							<% for( Entity e : list ) { %>
 								<option value="<%=e.getKey().getName()%>"><%=e.getKey().getName() %></option>
@@ -40,6 +42,9 @@
 							</select>
 						</td>
 					</tr>
+					<%} %>
+					
+					
 					<tr>
 						<td>&nbsp;</td>
 						<td><input type="submit" value="Select Seats"></td>

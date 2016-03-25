@@ -22,25 +22,29 @@
 			<div id="MainContent">
 
 				<% 
-				Iterable<Entity> flightSeats = (Iterable<Entity>)request.getAttribute("flightSeats");
+				ArrayList<Iterable<Entity>> flightsSeats = (ArrayList<Iterable<Entity>>)request.getAttribute("flightsSeats");
 				%>
 				
-				<form action="ReserveSeat" method="post">
-				
-				<input type="hidden" name="Flight" value="<%=request.getParameter("Flight") %>"/>
+				<form action="ReserveSeat" method="post">				
 				
 				<table>
+				
+					<% for(int flightIdx=0; flightIdx<4; flightIdx++) { %>
+					
+					<input type="hidden" name="Flight<%=flightIdx%>" value="<%=request.getParameter("Flight" + flightIdx) %>"/>
 					<tr>
-						<td><%=request.getParameter("Flight")%></td>
+						<td><%=request.getParameter("Flight" + flightIdx)%></td>
 						<td>
-							<select name="SeatID">
+							<select name="SeatID<%=flightIdx%>">
 								<option value="">Please select a seat.</option>
-							<% for( Entity e : flightSeats ) { %>
+							<% for( Entity e : flightsSeats.get(flightIdx) ) { %>
 								<option><%=e.getKey().getName() %></option>
 							<%} %>
 							</select>
 						</td>
 					</tr>
+					<% } %>
+					
 					<tr>
 						<td align="right">First Name:</td>
 						<td align="left"><input type="text" name="FirstName"/></td>
