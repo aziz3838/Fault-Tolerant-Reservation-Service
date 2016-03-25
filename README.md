@@ -10,6 +10,7 @@ This assignments require writing code in Java language. The code is a web applic
 
 * Aziz Alghamdi
 
+### A2 ###
 ### Task #1: Implement Transaction Retries ###
 
 * Retries mechanism is implemented inside the ReserveSeat function in Seat.java. It is implemented at the transaction level. The number of retries is set as 3 (variable retries). A ReserveSeat is considered successful if the transaction commit doesn't raise any exceptions. 
@@ -28,12 +29,20 @@ This assignments require writing code in Java language. The code is a web applic
 * Jmeter was used for load testing. The initial .jmx configuration file runs 20 threads, eaching with a loop count of 10, that are sending requests to /SeatReservation. I added the extra functionalities for convenience:
     * setUp Thread Group: it sends an HTTP request to /FreeSeats before every test.
     * Response Assertion (probably not needed): to assert the response from the HTTP requests is 200.
-* Now the load test just involves Jmeter, and it can be invoked from command line (without GUI) as: 
-```
-#!shell
+* Now the load test just involves Jmeter, and it can be invoked from command line (without GUI) as: "./bin/jmeter -n -t A2LoadTest.jmx"
 
-./bin/jmeter -n -t A2LoadTest.jmx
-```
+
+### A3 ###
+### Task #4: Cross-Group Transaction ###
+* We need to extend the pages to allow for 4 flights to be selected, also a seat on each flight. Once the user has selected each flight and seat, then we need to handle reservation of the seats.
+* Since the seats are under different entity groups, we need to use a cross-group transaction to allow all the seats to be reserved at the same time.
+
+### Task #5: Implement Waiting List ###
+* If a user does not get the seats they need, they can be put onto a waiting list. If a seat gets freed then the server goes through the waiting list in a FIFO order to see if someone can fill in the new seat.
+
+### Task #6: Make the Application Fault Tolerant ###
+* Each of the features of your website (e.g., adding intermediate stops) must be implemented so that they work, even if the system restarted at any point in the code.
+* We need to have to pay attention to the progress of the operations, to make sure whether certain operations must be re-executed or not.
 
 ### Version Control ###
 
