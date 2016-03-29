@@ -6,10 +6,10 @@ A2/target/
 A3/target/
 
 # for eclipse users
-.classpath
-*.class
-.project
-.settings/
+#.classpath
+#*.class
+#.project
+#.settings/
 
 # GAE
 A2/war/WEB-INF/appengine-generated/
