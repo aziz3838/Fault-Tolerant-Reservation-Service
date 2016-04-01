@@ -53,6 +53,10 @@
 						<td align="right">Last Name:</td>
 						<td align="left"><input type="text" name="LastName"/></td>
 					</tr>
+ 					<tr>
+						<td align="right"></td>
+						<td align="left"><input type="checkbox" name="waitlist">Would you like to be added to a waitlist if any of the seats are unavailable?</td>
+					</tr>
 					<tr>
 						<td></td>
 						<td><input type="submit" value="Reserve Seat"/></td>

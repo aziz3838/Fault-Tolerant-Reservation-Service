@@ -1,23 +1,18 @@
 package com.UBC513.A3;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import com.UBC513.A3.Data.Seat;
 import com.UBC513.A3.Data.SeatReservation;
-import com.google.appengine.api.datastore.DatastoreService;
-import com.google.appengine.api.datastore.DatastoreServiceFactory;
-import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.EntityNotFoundException;
-import com.google.appengine.api.datastore.Key;
-import com.google.appengine.api.datastore.KeyFactory;
+import com.google.appengine.api.taskqueue.Queue;
+import com.google.appengine.api.taskqueue.QueueFactory;
+import com.google.appengine.api.taskqueue.TaskOptions;
 
 @SuppressWarnings("serial")
 public class ReserveSeatServlet extends HttpServlet {
@@ -35,6 +30,8 @@ public class ReserveSeatServlet extends HttpServlet {
 			seatIDs[flightIdx] = req.getParameter("SeatID" + flightIdx);
 		}
 		
+		String waitlist = req.getParameter("waitlist");
+		
 		String FirstName = req.getParameter("FirstName");
 		String LastName = req.getParameter("LastName");
 		
@@ -44,13 +41,26 @@ public class ReserveSeatServlet extends HttpServlet {
 								   flights[1], seatIDs[1],
 								   flights[2], seatIDs[2],
 							   	   flights[3], seatIDs[3],
-							   	   FirstName, LastName)) {
-				// seat not reserved, show error page
-				forwardTo = "/reserveSeatError.jsp";
+							   	   FirstName, LastName)) 
+			{
+				if(waitlist != null)
+				{
+					SeatReservation.CreateReservation(flights[0], seatIDs[0], flights[1], seatIDs[1], flights[2], seatIDs[2], flights[3], seatIDs[3], FirstName, LastName, true);
+					Queue q = QueueFactory.getDefaultQueue();
+					q.add(TaskOptions.Builder.withUrl("/worker"));
+					forwardTo = "/reserveSeatWaiting.jsp";					
+				}
+				else
+				{
+					// seat not reserved, show error page
+					forwardTo = "/reserveSeatError.jsp";
+				}
 			}
 		} catch (EntityNotFoundException e) {
 			// seat not found, show error page
 			forwardTo = "/reserveSeatError.jsp";
+		} catch (Exception e) {
+			// Do Nothing.
 		}
 
 		// redirect to final page

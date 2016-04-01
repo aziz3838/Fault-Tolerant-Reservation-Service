@@ -20,7 +20,11 @@ public class WorkerServlet extends HttpServlet {
 	public void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException, ServletException {
 
-			Worker.Process();	
+			try {
+				Worker.Process();
+			} catch (EntityNotFoundException e) {
+				// do nothing. This shouldn't happen anyways.
+			}	
 	}
 
 }

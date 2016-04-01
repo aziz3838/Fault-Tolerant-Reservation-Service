@@ -1,0 +1,394 @@
+!SESSION 2016-03-29 15:26:19.992 -----------------------------------------------
+eclipse.buildId=4.5.1.M20150904-0015
+java.version=1.7.0_95
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_CA
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY com.google.gdt.eclipse.suite 1 0 2016-03-29 15:29:53.866
+!MESSAGE Registering: com.google.appengine.eclipse.sdkbundle_1.9.30
+
+!ENTRY com.google.gdt.eclipse.suite 1 0 2016-03-29 15:29:54.208
+!MESSAGE Registering: com.google.gwt.eclipse.sdkbundle_2.6.0
+
+!ENTRY org.eclipse.jdt.launching 4 4 2016-03-29 15:40:30.965
+!MESSAGE Failed to retrieve default libraries for /usr/lib/jvm/java-7-openjdk-amd64
+!SESSION 2016-03-29 15:42:25.739 -----------------------------------------------
+eclipse.buildId=4.5.1.M20150904-0015
+java.version=1.7.0_95
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_CA
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.core.resources 2 10035 2016-03-29 15:42:35.000
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY com.google.gdt.eclipse.core 1 0 2016-03-29 15:42:49.085
+!MESSAGE Scheduled rebuild of project A3 because of plugin update (current version: 3.8.0.v201410302155-rel-r44)
+
+!ENTRY com.google.gwt.eclipse.core 4 0 2016-03-29 15:55:09.956
+!MESSAGE Could not stop source viewer server.
+!STACK 0
+java.lang.ExceptionInInitializerError
+	at com.google.gdt.eclipse.platform.jetty.JettyServer.initLogging(JettyServer.java:40)
+	at com.google.gdt.eclipse.platform.jetty.JettyServer.<clinit>(JettyServer.java:30)
+	at com.google.gwt.eclipse.core.GWTPlugin.stop(GWTPlugin.java:147)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:827)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:1)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:820)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.stopWorker0(EquinoxBundle.java:955)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.stopWorker(EquinoxBundle.java:323)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:626)
+	at org.eclipse.osgi.container.Module.stop(Module.java:488)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.decStartLevel(ModuleContainer.java:1623)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1542)
+	at org.eclipse.osgi.container.SystemModule.stopWorker(SystemModule.java:248)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule.stopWorker(EquinoxBundle.java:144)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:626)
+	at org.eclipse.osgi.container.Module.stop(Module.java:488)
+	at org.eclipse.osgi.container.SystemModule.stop(SystemModule.java:186)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:159)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.IllegalArgumentException: Logging bundle must not be null.
+	at org.eclipse.core.internal.runtime.Log.<init>(Log.java:30)
+	at org.eclipse.core.internal.runtime.InternalPlatform.getLog(InternalPlatform.java:351)
+	at org.eclipse.core.runtime.Platform.getLog(Platform.java:1017)
+	at com.google.gdt.eclipse.platform.jetty.JettyEclipseLogger.<clinit>(JettyEclipseLogger.java:35)
+	... 20 more
+!SESSION 2016-03-29 15:56:29.582 -----------------------------------------------
+eclipse.buildId=4.5.1.M20150904-0015
+java.version=1.7.0_95
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_CA
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.core.resources 4 567 2016-03-29 15:56:48.836
+!MESSAGE Workspace restored, but some problems occurred.
+!SUBENTRY 1 org.eclipse.core.resources 4 567 2016-03-29 15:56:48.836
+!MESSAGE Could not read metadata for 'RemoteSystemsTempFiles'.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: The project description file (.project) for 'RemoteSystemsTempFiles' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:888)
+	at org.eclipse.core.internal.resources.SaveManager.restoreMetaInfo(SaveManager.java:902)
+	at org.eclipse.core.internal.resources.SaveManager.restoreMetaInfo(SaveManager.java:882)
+	at org.eclipse.core.internal.resources.SaveManager.restore(SaveManager.java:733)
+	at org.eclipse.core.internal.resources.SaveManager.startup(SaveManager.java:1588)
+	at org.eclipse.core.internal.resources.Workspace.startup(Workspace.java:2386)
+	at org.eclipse.core.internal.resources.Workspace.open(Workspace.java:2157)
+	at org.eclipse.core.resources.ResourcesPlugin.start(ResourcesPlugin.java:463)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$3.run(BundleContextImpl.java:771)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$3.run(BundleContextImpl.java:1)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.startActivator(BundleContextImpl.java:764)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.start(BundleContextImpl.java:721)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.startWorker0(EquinoxBundle.java:941)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.startWorker(EquinoxBundle.java:318)
+	at org.eclipse.osgi.container.Module.doStart(Module.java:571)
+	at org.eclipse.osgi.container.Module.start(Module.java:439)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:454)
+	at org.eclipse.osgi.internal.hooks.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClass(ClasspathManager.java:531)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.findLocalClass(ModuleClassLoader.java:324)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:327)
+	at org.eclipse.osgi.internal.loader.sources.SingleSourcePackage.loadClass(SingleSourcePackage.java:36)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:398)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:352)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:344)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:358)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:140)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:669)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:608)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1515)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1488)
+!SUBENTRY 2 org.eclipse.core.resources 4 567 2016-03-29 15:56:48.839
+!MESSAGE The project description file (.project) for 'RemoteSystemsTempFiles' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
+
+!ENTRY com.google.gdt.eclipse.drive 4 0 2016-03-29 15:57:16.618
+!MESSAGE Exception querying project nature
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/RemoteSystemsTempFiles' is not open.
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:143)
+	at org.eclipse.core.internal.resources.Project.hasNature(Project.java:521)
+	at com.google.gdt.eclipse.drive.resources.PendingSaveManager$1.resourceChanged(PendingSaveManager.java:85)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:299)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:289)
+	at org.eclipse.core.internal.events.NotificationManager.handleEvent(NotificationManager.java:265)
+	at org.eclipse.core.internal.resources.Workspace.broadcastEvent(Workspace.java:368)
+	at org.eclipse.core.internal.resources.Resource.broadcastPreDeleteEvent(Resource.java:1884)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:766)
+	at org.eclipse.core.internal.resources.Project.delete(Project.java:329)
+	at org.eclipse.rse.internal.files.ui.resources.SystemRemoteEditManager.createRemoteEditProject(SystemRemoteEditManager.java:343)
+	at org.eclipse.rse.internal.files.ui.resources.SystemRemoteEditManager.getRemoteEditProject(SystemRemoteEditManager.java:284)
+	at org.eclipse.rse.internal.files.ui.Activator$InitRemoteEditJob.run(Activator.java:73)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.core.resources 4 372 2016-03-29 15:57:16.618
+!MESSAGE Resource '/RemoteSystemsTempFiles' is not open.
+
+!ENTRY com.google.gdt.eclipse.drive 1 0 2016-03-29 15:57:16.625
+!MESSAGE Forgetting unsaved files for about-to-be-deleted project RemoteSystemsTempFiles
+
+!ENTRY com.google.gwt.eclipse.core 4 0 2016-03-31 12:26:23.659
+!MESSAGE Cannot get version of GWT SDK "/A3/lib", ensure it is configured properly
+!STACK 0
+java.lang.ClassNotFoundException: com.google.gwt.dev.About
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:366)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:355)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:354)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:425)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:358)
+	at com.google.gwt.eclipse.core.runtime.GWTRuntime.getVersion(GWTRuntime.java:472)
+	at com.google.gdt.eclipse.core.sdk.SdkUtils$MaxSdkVersionComputer.computeMaxSdkVersion(SdkUtils.java:46)
+	at com.google.gdt.eclipse.suite.ext.update.UpdateSiteURLGenerator.computeCompositeUpdateSiteURL(UpdateSiteURLGenerator.java:207)
+	at com.google.gdt.eclipse.suite.ext.update.UpdateSiteURLGenerator.generateURL(UpdateSiteURLGenerator.java:145)
+	at com.google.gdt.eclipse.suite.ext.update.FeatureUpdateManager.createDownloadJob(FeatureUpdateManager.java:150)
+	at com.google.gdt.eclipse.suite.ext.update.FeatureUpdateManager.checkForUpdates(FeatureUpdateManager.java:138)
+	at com.google.gdt.eclipse.suite.ext.builders.UpdateTriggerCompilationParticipant.isActive(UpdateTriggerCompilationParticipant.java:40)
+	at org.eclipse.jdt.internal.core.JavaModelManager$CompilationParticipants.getCompilationParticipants(JavaModelManager.java:351)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.initializeBuilder(JavaBuilder.java:589)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.build(JavaBuilder.java:169)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:734)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:205)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:245)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:300)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:303)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:359)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:382)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY com.google.gdt.eclipse.core 2 0 2016-03-31 12:26:24.439
+!MESSAGE Unable to connect to https://dl.google.com/eclipse/plugin/core/4.4/site.xml.
+
+!ENTRY com.google.gwt.eclipse.core 4 0 2016-03-31 12:26:24.725
+!MESSAGE Cannot get version of GWT SDK "/A3/lib", ensure it is configured properly
+!STACK 0
+java.lang.ClassNotFoundException: com.google.gwt.dev.About
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:366)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:355)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:354)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:425)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:358)
+	at com.google.gwt.eclipse.core.runtime.GWTRuntime.getVersion(GWTRuntime.java:472)
+	at com.google.gdt.eclipse.core.sdk.SdkUtils$MaxSdkVersionComputer.computeMaxSdkVersion(SdkUtils.java:46)
+	at com.google.gdt.eclipse.suite.ext.GdtExtPlugin$2.checkSiteXMLForUpdates(GdtExtPlugin.java:207)
+	at com.google.gdt.eclipse.core.update.internal.core.FeatureUpdateChecker.checkForUpdates(FeatureUpdateChecker.java:242)
+	at com.google.gdt.eclipse.suite.ext.update.CompositeArtifactsDowloadJobChangeListener$2.done(CompositeArtifactsDowloadJobChangeListener.java:251)
+	at org.eclipse.core.internal.jobs.JobListeners$3.notify(JobListeners.java:42)
+	at org.eclipse.core.internal.jobs.JobListeners.doNotify(JobListeners.java:113)
+	at org.eclipse.core.internal.jobs.JobListeners.done(JobListeners.java:151)
+	at org.eclipse.core.internal.jobs.JobManager.endJob(JobManager.java:694)
+	at org.eclipse.core.internal.jobs.WorkerPool.endJob(WorkerPool.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:72)
+
+!ENTRY com.google.gdt.eclipse.suite.ext 4 2 2016-03-31 12:26:24.731
+!MESSAGE Problems occurred when invoking code from plug-in: "com.google.gdt.eclipse.suite.ext".
+!STACK 0
+org.eclipse.core.runtime.AssertionFailedException: assertion failed: A plug-in version identifier must be non-empty.
+	at org.eclipse.core.runtime.Assert.isTrue(Assert.java:110)
+	at org.eclipse.core.runtime.PluginVersionIdentifier.parseVersion(PluginVersionIdentifier.java:151)
+	at org.eclipse.core.runtime.PluginVersionIdentifier.<init>(PluginVersionIdentifier.java:120)
+	at com.google.gdt.eclipse.suite.ext.GdtExtPlugin$2.checkSiteXMLForUpdates(GdtExtPlugin.java:218)
+	at com.google.gdt.eclipse.core.update.internal.core.FeatureUpdateChecker.checkForUpdates(FeatureUpdateChecker.java:242)
+	at com.google.gdt.eclipse.suite.ext.update.CompositeArtifactsDowloadJobChangeListener$2.done(CompositeArtifactsDowloadJobChangeListener.java:251)
+	at org.eclipse.core.internal.jobs.JobListeners$3.notify(JobListeners.java:42)
+	at org.eclipse.core.internal.jobs.JobListeners.doNotify(JobListeners.java:113)
+	at org.eclipse.core.internal.jobs.JobListeners.done(JobListeners.java:151)
+	at org.eclipse.core.internal.jobs.JobManager.endJob(JobManager.java:694)
+	at org.eclipse.core.internal.jobs.WorkerPool.endJob(WorkerPool.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:72)
+
+!ENTRY com.google.gwt.eclipse.core 4 0 2016-04-01 00:06:51.508
+!MESSAGE Cannot get version of GWT SDK "/A3/lib", ensure it is configured properly
+!STACK 0
+java.lang.ClassNotFoundException: com.google.gwt.dev.About
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:366)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:355)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:354)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:425)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:358)
+	at com.google.gwt.eclipse.core.runtime.GWTRuntime.getVersion(GWTRuntime.java:472)
+	at com.google.gdt.eclipse.core.sdk.SdkUtils$MaxSdkVersionComputer.computeMaxSdkVersion(SdkUtils.java:46)
+	at com.google.gdt.eclipse.suite.ext.update.UpdateSiteURLGenerator.computeCompositeUpdateSiteURL(UpdateSiteURLGenerator.java:207)
+	at com.google.gdt.eclipse.suite.ext.update.UpdateSiteURLGenerator.generateURL(UpdateSiteURLGenerator.java:145)
+	at com.google.gdt.eclipse.suite.ext.update.FeatureUpdateManager.createDownloadJob(FeatureUpdateManager.java:150)
+	at com.google.gdt.eclipse.suite.ext.update.FeatureUpdateManager.checkForUpdates(FeatureUpdateManager.java:138)
+	at com.google.gdt.eclipse.suite.ext.builders.UpdateTriggerCompilationParticipant.isActive(UpdateTriggerCompilationParticipant.java:40)
+	at org.eclipse.jdt.internal.core.JavaModelManager$CompilationParticipants.getCompilationParticipants(JavaModelManager.java:351)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.notifyParticipants(ReconcileWorkingCopyOperation.java:239)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:95)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:729)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:789)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1250)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:126)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:108)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:89)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:87)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:151)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:86)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:104)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+
+!ENTRY com.google.gdt.eclipse.core 2 0 2016-04-01 00:06:52.399
+!MESSAGE Unable to connect to https://dl.google.com/eclipse/plugin/core/4.4/site.xml.
+
+!ENTRY com.google.gwt.eclipse.core 4 0 2016-04-01 00:06:52.626
+!MESSAGE Cannot get version of GWT SDK "/A3/lib", ensure it is configured properly
+!STACK 0
+java.lang.ClassNotFoundException: com.google.gwt.dev.About
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:366)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:355)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:354)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:425)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:358)
+	at com.google.gwt.eclipse.core.runtime.GWTRuntime.getVersion(GWTRuntime.java:472)
+	at com.google.gdt.eclipse.core.sdk.SdkUtils$MaxSdkVersionComputer.computeMaxSdkVersion(SdkUtils.java:46)
+	at com.google.gdt.eclipse.suite.ext.GdtExtPlugin$2.checkSiteXMLForUpdates(GdtExtPlugin.java:207)
+	at com.google.gdt.eclipse.core.update.internal.core.FeatureUpdateChecker.checkForUpdates(FeatureUpdateChecker.java:242)
+	at com.google.gdt.eclipse.suite.ext.update.CompositeArtifactsDowloadJobChangeListener$2.done(CompositeArtifactsDowloadJobChangeListener.java:251)
+	at org.eclipse.core.internal.jobs.JobListeners$3.notify(JobListeners.java:42)
+	at org.eclipse.core.internal.jobs.JobListeners.doNotify(JobListeners.java:113)
+	at org.eclipse.core.internal.jobs.JobListeners.done(JobListeners.java:151)
+	at org.eclipse.core.internal.jobs.JobManager.endJob(JobManager.java:694)
+	at org.eclipse.core.internal.jobs.WorkerPool.endJob(WorkerPool.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:72)
+
+!ENTRY com.google.gdt.eclipse.suite.ext 4 2 2016-04-01 00:06:52.627
+!MESSAGE Problems occurred when invoking code from plug-in: "com.google.gdt.eclipse.suite.ext".
+!STACK 0
+org.eclipse.core.runtime.AssertionFailedException: assertion failed: A plug-in version identifier must be non-empty.
+	at org.eclipse.core.runtime.Assert.isTrue(Assert.java:110)
+	at org.eclipse.core.runtime.PluginVersionIdentifier.parseVersion(PluginVersionIdentifier.java:151)
+	at org.eclipse.core.runtime.PluginVersionIdentifier.<init>(PluginVersionIdentifier.java:120)
+	at com.google.gdt.eclipse.suite.ext.GdtExtPlugin$2.checkSiteXMLForUpdates(GdtExtPlugin.java:218)
+	at com.google.gdt.eclipse.core.update.internal.core.FeatureUpdateChecker.checkForUpdates(FeatureUpdateChecker.java:242)
+	at com.google.gdt.eclipse.suite.ext.update.CompositeArtifactsDowloadJobChangeListener$2.done(CompositeArtifactsDowloadJobChangeListener.java:251)
+	at org.eclipse.core.internal.jobs.JobListeners$3.notify(JobListeners.java:42)
+	at org.eclipse.core.internal.jobs.JobListeners.doNotify(JobListeners.java:113)
+	at org.eclipse.core.internal.jobs.JobListeners.done(JobListeners.java:151)
+	at org.eclipse.core.internal.jobs.JobManager.endJob(JobManager.java:694)
+	at org.eclipse.core.internal.jobs.WorkerPool.endJob(WorkerPool.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:72)
+
+!ENTRY org.eclipse.ui 4 0 2016-04-01 00:39:35.506
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.IllegalArgumentException: Argument cannot be null
+	at org.eclipse.swt.SWT.error(SWT.java:4472)
+	at org.eclipse.swt.SWT.error(SWT.java:4406)
+	at org.eclipse.swt.SWT.error(SWT.java:4377)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:482)
+	at org.eclipse.swt.widgets.Control.removeMouseMoveListener(Control.java:2120)
+	at org.eclipse.jface.text.AbstractInformationControl$5.mouseUp(AbstractInformationControl.java:403)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:220)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4481)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1329)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:3819)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3430)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:1127)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1018)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:156)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:654)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:598)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:139)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:669)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:608)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1515)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1488)
+
+!ENTRY org.eclipse.jdt.debug 4 125 2016-04-01 02:00:25.893
+!MESSAGE Internal error logged from JDI Debug: 
+!STACK 0
+org.eclipse.jdi.TimeoutException: Timeout occurred while waiting for packet 6816.
+	at org.eclipse.jdi.internal.connect.PacketReceiveManager.getReply(PacketReceiveManager.java:187)
+	at org.eclipse.jdi.internal.connect.PacketReceiveManager.getReply(PacketReceiveManager.java:198)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:192)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:227)
+	at org.eclipse.jdi.internal.ThreadReferenceImpl.frames(ThreadReferenceImpl.java:263)
+	at org.eclipse.jdi.internal.ThreadReferenceImpl.frames(ThreadReferenceImpl.java:245)
+	at org.eclipse.jdt.internal.debug.core.model.JDIThread.getUnderlyingFrames(JDIThread.java:677)
+	at org.eclipse.jdt.internal.debug.core.model.JDIThread.computeStackFrames(JDIThread.java:576)
+	at org.eclipse.jdt.internal.debug.core.model.JDIThread.computeStackFrames(JDIThread.java:648)
+	at org.eclipse.jdt.internal.debug.core.model.JDIStackFrame.supportsDropToFrame(JDIStackFrame.java:642)
+	at org.eclipse.jdt.internal.debug.core.model.JDIStackFrame.canDropToFrame(JDIStackFrame.java:610)
+	at org.eclipse.debug.internal.core.commands.DropToFrameCommand.isSteppable(DropToFrameCommand.java:35)
+	at org.eclipse.debug.internal.core.commands.StepCommand.isExecutable(StepCommand.java:46)
+	at org.eclipse.debug.core.commands.AbstractDebugCommand$UpdateJob.run(AbstractDebugCommand.java:101)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.jdt.debug 4 125 2016-04-01 02:00:29.128
+!MESSAGE Internal error logged from JDI Debug: 
+!STACK 0
+org.eclipse.jdi.TimeoutException: Timeout occurred while waiting for packet 6818.
+	at org.eclipse.jdi.internal.connect.PacketReceiveManager.getReply(PacketReceiveManager.java:187)
+	at org.eclipse.jdi.internal.connect.PacketReceiveManager.getReply(PacketReceiveManager.java:198)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:192)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:227)
+	at org.eclipse.jdi.internal.ThreadReferenceImpl.frames(ThreadReferenceImpl.java:263)
+	at org.eclipse.jdi.internal.ThreadReferenceImpl.frames(ThreadReferenceImpl.java:245)
+	at org.eclipse.jdt.internal.debug.core.model.JDIThread.getUnderlyingFrames(JDIThread.java:677)
+	at org.eclipse.jdt.internal.debug.core.model.JDIThread.computeStackFrames(JDIThread.java:576)
+	at org.eclipse.jdt.internal.debug.core.model.JDIThread.computeStackFrames(JDIThread.java:648)
+	at org.eclipse.jdt.internal.debug.core.model.JDIStackFrame.supportsDropToFrame(JDIStackFrame.java:642)
+	at org.eclipse.jdt.internal.debug.core.model.JDIStackFrame.canDropToFrame(JDIStackFrame.java:610)
+	at org.eclipse.debug.internal.core.commands.DropToFrameCommand.isSteppable(DropToFrameCommand.java:35)
+	at org.eclipse.debug.internal.core.commands.StepCommand.isExecutable(StepCommand.java:46)
+	at org.eclipse.debug.core.commands.AbstractDebugCommand$UpdateJob.run(AbstractDebugCommand.java:101)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.jdt.debug 4 125 2016-04-01 02:01:01.801
+!MESSAGE Internal error logged from JDI Debug: 
+!STACK 0
+org.eclipse.jdi.TimeoutException: Timeout occurred while waiting for packet 6837.
+	at org.eclipse.jdi.internal.connect.PacketReceiveManager.getReply(PacketReceiveManager.java:187)
+	at org.eclipse.jdi.internal.connect.PacketReceiveManager.getReply(PacketReceiveManager.java:198)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:192)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:227)
+	at org.eclipse.jdi.internal.VirtualMachineImpl.classesBySignature(VirtualMachineImpl.java:652)
+	at org.eclipse.jdi.internal.VirtualMachineImpl.classesByName(VirtualMachineImpl.java:682)
+	at org.eclipse.jdt.internal.debug.core.model.JDIDebugTarget.jdiClassesByName(JDIDebugTarget.java:1630)
+	at org.eclipse.jdt.internal.debug.core.hcr.JavaHotCodeReplaceManager.filterUnloadedTypes(JavaHotCodeReplaceManager.java:351)
+	at org.eclipse.jdt.internal.debug.core.hcr.JavaHotCodeReplaceManager.doHotCodeReplace(JavaHotCodeReplaceManager.java:462)
+	at org.eclipse.jdt.internal.debug.core.hcr.JavaHotCodeReplaceManager.access$0(JavaHotCodeReplaceManager.java:445)
+	at org.eclipse.jdt.internal.debug.core.hcr.JavaHotCodeReplaceManager$1.run(JavaHotCodeReplaceManager.java:316)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.run(DebugPlugin.java:1116)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.async(DebugPlugin.java:1097)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:439)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)

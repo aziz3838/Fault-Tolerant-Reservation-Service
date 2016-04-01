@@ -18,10 +18,11 @@ public class SelectSeatServlet extends HttpServlet {
 	public void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException, ServletException {
 
-		String flights[] = new String[4];
+		final int NUM_FLIGHTS = 4;
+		String flights[] = new String[NUM_FLIGHTS];
 		ArrayList<Iterable<Entity>> flightsSeats = new ArrayList<Iterable<Entity>>();
 		
-		for(int i=0; i<4; i++)
+		for(int i=0; i<NUM_FLIGHTS; i++)
 		{
 			flights[i] = req.getParameter("Flight" + i);
 			flightsSeats.add(Seat.GetFreeSeats(flights[i])); 

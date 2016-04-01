@@ -12,8 +12,11 @@ import com.google.appengine.api.datastore.Query.FilterOperator;
 import com.google.appengine.api.datastore.Transaction;
 import com.google.appengine.api.datastore.TransactionOptions;
 
+
 //Helper class for flight seats.
 public class Seat {
+	
+	static final int NUM_RETRIES = 10;
 
 	// Create a seat on a specific flight,
 	// @store = true, when you want to commit entity to the datastore
@@ -57,8 +60,9 @@ public class Seat {
 			String FirstName, String LastName) throws EntityNotFoundException {
 		DatastoreService ds = DatastoreServiceFactory.getDatastoreService();
 
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < NUM_RETRIES; i++) {
 			Transaction tx = ds.beginTransaction();
+			
 			try {
 				Entity e = ds.get(tx, KeyFactory.createKey(FlightName, SeatID));
 
@@ -92,26 +96,35 @@ public class Seat {
 		// Use cross-group transaction
 		TransactionOptions options = TransactionOptions.Builder.withXG(true);
 
-		for (int i = 0; i < 10; i++) {
+		final int NUM_FLIGHTS = 4;
+		
+		for (int i = 0; i < NUM_RETRIES; i++) {
 			Transaction tx = ds.beginTransaction(options);
 			try {
 				
-				for(int flightIdx=0; flightIdx<4; flightIdx++)
+				for(int flightIdx=0; flightIdx<NUM_FLIGHTS; flightIdx++)
 				{
 					Entity e = ds.get(tx, KeyFactory.createKey(flights[flightIdx], seatIDs[flightIdx]));
+									
 					if (e.getProperty("PersonSitting") != null)
+					{						
 						return false;
+					}
 					e.setProperty("PersonSitting", FirstName + " " + LastName);
 					ds.put(tx, e);
 				}
-
+				
 				tx.commit();
 				return true;
 			} catch (ConcurrentModificationException e) {
 				// continue
+			} catch (Exception e1) {
+				// continue
 			} finally {
 				if (tx.isActive())
+				{
 					tx.rollback();
+				}
 			}
 		}
 		throw new ConcurrentModificationException();
