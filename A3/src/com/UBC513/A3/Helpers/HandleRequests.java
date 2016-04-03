@@ -15,14 +15,10 @@ import com.google.appengine.api.taskqueue.QueueFactory;
 import com.google.appengine.api.taskqueue.TaskOptions;
 
 public class HandleRequests {
-
+	
 	public static void Process() throws EntityNotFoundException 
 	{
 		System.out.println("Called Request Handler");
-		//let datastore catch up
-		try {
-			Thread.sleep(10000);
-		} catch (InterruptedException e1) {}
 				
 		// Retry the waitlist transaction!!
 		Iterable<Entity> requests = Request.GetRequests();
@@ -91,7 +87,7 @@ public class HandleRequests {
 		
 		// Temporary
 		try {
-			Thread.sleep(10000);
+			Thread.sleep(5000);
 		} catch (InterruptedException except) {
 			// do nothing
 		}

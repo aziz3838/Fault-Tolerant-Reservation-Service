@@ -36,6 +36,7 @@
 	<servlet>
 		<servlet-name>Request</servlet-name>
 		<servlet-class>com.UBC513.A3.RequestServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
 	</servlet>
 
 	<!-- Mappings ================================================================-->
@@ -82,7 +83,6 @@
 	<welcome-file-list>
 		<welcome-file>Home</welcome-file>
 	</welcome-file-list>
-	
 	
 	<!-- cloud cover -->
 	 <servlet>

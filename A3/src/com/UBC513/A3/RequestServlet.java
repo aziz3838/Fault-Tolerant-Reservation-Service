@@ -18,6 +18,16 @@ import com.google.appengine.api.datastore.EntityNotFoundException;
 
 @SuppressWarnings("serial")
 public class RequestServlet extends HttpServlet {
+	public void init()
+	{
+
+			try {
+				HandleRequests.Process();
+			} catch (EntityNotFoundException e) {
+				// do nothing. This shouldn't happen anyways.
+			}	
+	}
+	
 	public void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException, ServletException {
 

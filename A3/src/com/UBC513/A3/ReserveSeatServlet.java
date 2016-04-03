@@ -49,8 +49,8 @@ public class ReserveSeatServlet extends HttpServlet {
 								  flights[2], seatIDs[2], flights[3], seatIDs[3],
 								  FirstName, LastName, waitingListOk, true);
 			System.out.println("Created Request");
-			Queue q = QueueFactory.getDefaultQueue();
-			q.add(TaskOptions.Builder.withUrl("/request"));
+			//Queue q = QueueFactory.getDefaultQueue();
+			//q.add(TaskOptions.Builder.withUrl("/request"));
 			
 		} catch (Exception e1) {
 			// ?
