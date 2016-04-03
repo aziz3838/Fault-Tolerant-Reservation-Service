@@ -7,6 +7,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.UBC513.A3.Data.Request;
 import com.UBC513.A3.Data.Seat;
 import com.UBC513.A3.Data.SeatReservation;
 import com.google.appengine.api.datastore.EntityNotFoundException;
@@ -31,37 +33,30 @@ public class ReserveSeatServlet extends HttpServlet {
 		}
 		
 		String waitlist = req.getParameter("waitlist");
+		boolean waitingListOk = false;
+		if(waitlist != null)
+			waitingListOk = true;
 		
 		String FirstName = req.getParameter("FirstName");
 		String LastName = req.getParameter("LastName");
 		
+		// This needs to changes to a generic "we received your request"
 		String forwardTo = "/seatConfirmation.jsp";
+		
+		// Fault Tolerance: Store Request
 		try {
-			if (!Seat.ReserveSeats(flights[0], seatIDs[0],
-								   flights[1], seatIDs[1],
-								   flights[2], seatIDs[2],
-							   	   flights[3], seatIDs[3],
-							   	   FirstName, LastName)) 
-			{
-				if(waitlist != null)
-				{
-					SeatReservation.CreateReservation(flights[0], seatIDs[0], flights[1], seatIDs[1], flights[2], seatIDs[2], flights[3], seatIDs[3], FirstName, LastName, true);
-					Queue q = QueueFactory.getDefaultQueue();
-					q.add(TaskOptions.Builder.withUrl("/worker"));
-					forwardTo = "/reserveSeatWaiting.jsp";					
-				}
-				else
-				{
-					// seat not reserved, show error page
-					forwardTo = "/reserveSeatError.jsp";
-				}
-			}
-		} catch (EntityNotFoundException e) {
-			// seat not found, show error page
-			forwardTo = "/reserveSeatError.jsp";
-		} catch (Exception e) {
-			// Do Nothing.
+			Request.CreateRequest(flights[0], seatIDs[0], flights[1], seatIDs[1],
+								  flights[2], seatIDs[2], flights[3], seatIDs[3],
+								  FirstName, LastName, waitingListOk, true);
+			System.out.println("Created Request");
+			Queue q = QueueFactory.getDefaultQueue();
+			q.add(TaskOptions.Builder.withUrl("/request"));
+			
+		} catch (Exception e1) {
+			// ?
 		}
+		
+		
 
 		// redirect to final page
 		ServletContext sc = getServletContext();

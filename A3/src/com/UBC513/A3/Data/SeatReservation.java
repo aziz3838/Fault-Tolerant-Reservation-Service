@@ -7,6 +7,8 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.EntityNotFoundException;
+import com.google.appengine.api.datastore.KeyFactory;
 import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Query.SortDirection;
 
@@ -37,7 +39,16 @@ public class SeatReservation {
 	public static Entity CreateReservation(String Flight1, String Flight1Seat, String Flight2, String Flight2Seat, String Flight3,
 			String Flight3Seat, String Flight4, String Flight4Seat, String FirstName, String LastName, boolean store ) throws Exception
 	{
-		Entity e = new Entity("SeatReservation");
+		DatastoreService ds = DatastoreServiceFactory.getDatastoreService();
+		String keyString = Flight1+Flight2+Flight3+Flight4+Flight1Seat+Flight2Seat+Flight3Seat+Flight4Seat+FirstName+LastName;
+		try {
+	        ds.get(KeyFactory.createKey("SeatReservation",keyString));
+	        return null;	//TODO
+	    } catch (EntityNotFoundException e){
+	        // Continue
+	    }
+		
+		Entity e = new Entity("SeatReservation", keyString);
 		
 		e.setProperty("date", new Date() );
 		e.setProperty("Flight1", Flight1);
@@ -53,8 +64,7 @@ public class SeatReservation {
 		e.setProperty("FirstName", FirstName);
 		e.setProperty("LastName", LastName);
 		
-		if( store) {
-			DatastoreService ds = DatastoreServiceFactory.getDatastoreService();
+		if(store) {
 			ds.put(e);
 		}
 		

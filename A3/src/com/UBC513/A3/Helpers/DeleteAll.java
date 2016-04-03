@@ -44,6 +44,24 @@ public class DeleteAll extends HttpServlet {
 		
 		ds.delete(keys);
 		
+		//Deletes all waiting list items
+		q = new Query("SeatReservation");
+		seats = ds.prepare(q).asIterable();
+		keys.clear();
+		for( Entity e : seats)
+			keys.add(e.getKey());
+		
+		ds.delete(keys);
+				
+		//Deletes all requests in datastore
+		q = new Query("Request");
+		seats = ds.prepare(q).asIterable();
+		keys.clear();
+		for( Entity e : seats)
+			keys.add(e.getKey());
+		
+		ds.delete(keys);
+		
 		//redirect to deleteComplete.jsp
 		ServletContext sc = getServletContext();
 		RequestDispatcher rd = sc.getRequestDispatcher("/deleteComplete.jsp");
