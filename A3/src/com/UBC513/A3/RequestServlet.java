@@ -20,7 +20,6 @@ import com.google.appengine.api.datastore.EntityNotFoundException;
 public class RequestServlet extends HttpServlet {
 	public void init()
 	{
-
 			try {
 				HandleRequests.Process();
 			} catch (EntityNotFoundException e) {

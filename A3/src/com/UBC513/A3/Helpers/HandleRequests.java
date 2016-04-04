@@ -25,7 +25,8 @@ public class HandleRequests {
 		for(Entity e : requests )
 		{
 			System.out.println("Processing a Request");
-			// Get the data again so we can make a new trasact.
+			
+			// Get data.
 			String flights[] = new String[4];
 			String seatIDs[] = new String[4];
 			for(int flightIdx=0; flightIdx<4; flightIdx++)
@@ -37,7 +38,7 @@ public class HandleRequests {
 			String LastName = (String) e.getProperty("LastName");
 			Boolean waitingListOk = (Boolean) e.getProperty("waitingListOk");
 
-			
+			// Try to reserve/put in waiting list
 			try {
 				if (!Seat.ReserveSeats(flights[0], seatIDs[0],
 									   flights[1], seatIDs[1],
@@ -51,43 +52,32 @@ public class HandleRequests {
 						SeatReservation.CreateReservation(flights[0], seatIDs[0], flights[1], seatIDs[1],
 														  flights[2], seatIDs[2], flights[3], seatIDs[3],
 														  FirstName, LastName, true);
-						Queue q = QueueFactory.getDefaultQueue();
-						q.add(TaskOptions.Builder.withUrl("/worker"));
-						System.out.println("Added to waiting list");
-						//forwardTo = "/reserveSeatWaiting.jsp";					
+						System.out.println("Added to waiting list");				
 					}
 					else
 					{
 						System.out.println("Seat Not Reserved, no waiting list request");
-						// seat not reserved, show error page
-						//forwardTo = "/reserveSeatError.jsp";
 					}
 				} else {
 					System.out.println("Seat Reserve Succeeded");
 				}
 				
-				// Succes!! remove this request.
+				// Success! Remove this request.
 				DatastoreService ds = DatastoreServiceFactory.getDatastoreService();
 				Key k = e.getKey();
 				ds.delete(k);
 				
 			} catch (EntityNotFoundException exep) {
-				// seat not found, show error page
-				//forwardTo = "/reserveSeatError.jsp";
 				System.out.println("Error 1");
 			} catch (Exception exep) {
-				// Do Nothing.
 				System.out.println("Error 2");
 			}
 			
-			
-			
 		}
 		
-		
-		// Temporary
+		// Re-schedule this task
 		try {
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 		} catch (InterruptedException except) {
 			// do nothing
 		}

@@ -31,6 +31,7 @@
 	<servlet>
 		<servlet-name>Worker</servlet-name>
 		<servlet-class>com.UBC513.A3.WorkerServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
 	</servlet>
 	
 	<servlet>

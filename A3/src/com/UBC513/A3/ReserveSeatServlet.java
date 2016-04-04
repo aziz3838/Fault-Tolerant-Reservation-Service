@@ -9,12 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.UBC513.A3.Data.Request;
-import com.UBC513.A3.Data.Seat;
-import com.UBC513.A3.Data.SeatReservation;
-import com.google.appengine.api.datastore.EntityNotFoundException;
-import com.google.appengine.api.taskqueue.Queue;
-import com.google.appengine.api.taskqueue.QueueFactory;
-import com.google.appengine.api.taskqueue.TaskOptions;
 
 @SuppressWarnings("serial")
 public class ReserveSeatServlet extends HttpServlet {
@@ -49,15 +43,11 @@ public class ReserveSeatServlet extends HttpServlet {
 								  flights[2], seatIDs[2], flights[3], seatIDs[3],
 								  FirstName, LastName, waitingListOk, true);
 			System.out.println("Created Request");
-			//Queue q = QueueFactory.getDefaultQueue();
-			//q.add(TaskOptions.Builder.withUrl("/request"));
 			
 		} catch (Exception e1) {
-			// ?
+			// Retry can be implemented here
 		}
 		
-		
-
 		// redirect to final page
 		ServletContext sc = getServletContext();
 		RequestDispatcher rd = sc.getRequestDispatcher(forwardTo);

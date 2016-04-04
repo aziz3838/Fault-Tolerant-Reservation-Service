@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.UBC513.A3.Data.Seat;
 import com.UBC513.A3.Data.SeatReservation;
+import com.UBC513.A3.Helpers.HandleRequests;
 import com.UBC513.A3.Helpers.Worker;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
@@ -17,6 +18,14 @@ import com.google.appengine.api.datastore.EntityNotFoundException;
 
 @SuppressWarnings("serial")
 public class WorkerServlet extends HttpServlet {
+	public void init()
+	{
+			try {
+				Worker.Process();
+			} catch (EntityNotFoundException e) {
+				// do nothing. This shouldn't happen anyways.
+			}	
+	}
 	public void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException, ServletException {
 

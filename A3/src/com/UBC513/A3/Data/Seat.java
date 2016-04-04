@@ -87,7 +87,8 @@ public class Seat {
 			String Flight2, String Flight2Seat, String Flight3,
 			String Flight3Seat, String Flight4, String Flight4Seat,
 			String FirstName, String LastName) throws EntityNotFoundException {
-		System.out.println("Received Reserve Seat Request");
+		System.out.println("Received Reserve Seat Request, Flight1: " + Flight1 +
+						   ", SeatID1: " + Flight1Seat + ", FirstName: " + FirstName);
 		// Use arrays
 		String flights[] = new String[] {Flight1, Flight2, Flight3, Flight4};
 		String seatIDs[] = new String[] {Flight1Seat, Flight2Seat, Flight3Seat, Flight4Seat};
@@ -104,17 +105,14 @@ public class Seat {
 				
 				for(int flightIdx=0; flightIdx<NUM_FLIGHTS; flightIdx++)
 				{
-					System.out.println("Looking for entity, flight " + flights[flightIdx] + ", seatID " + seatIDs[flightIdx]);
 					Entity e = ds.get(tx, KeyFactory.createKey(flights[flightIdx], seatIDs[flightIdx]));
-					System.out.println("Found entity");
 									
 					if (e.getProperty("PersonSitting") != null)
 					{
 						if(e.getProperty("PersonSitting").equals(FirstName + " " + LastName))
 						{
-							System.out.println("idempotent");
-							return true;	// idempotent
-							//TODO: need t =o check that ALL seats all under the same name
+							//System.out.println("idempotent");
+							continue;	// idempotent
 						} else {
 							return false;
 						}

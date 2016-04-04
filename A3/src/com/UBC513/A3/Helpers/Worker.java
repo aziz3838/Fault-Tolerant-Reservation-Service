@@ -15,6 +15,8 @@ public class Worker {
 
 	public static void Process() throws EntityNotFoundException 
 	{
+		System.out.println("Called Waitinglist Handler");
+		
 		// Retry the waitlist transaction!!
 		Iterable<Entity> reservations = SeatReservation.GetReservations();
 		for(Entity e : reservations )
@@ -34,22 +36,20 @@ public class Worker {
 			// Retry tx
 			if (Seat.ReserveSeats(Flight1, Flight1Seat, Flight2, Flight2Seat, Flight3, Flight3Seat, Flight4, Flight4Seat, FirstName, LastName)) 
 			{
-				// Succes!! remove this.
+				// Success!! remove this.
 				DatastoreService ds = DatastoreServiceFactory.getDatastoreService();
 				Key k = e.getKey();
 				ds.delete(k);
 			}
-			else
-			{
-				// Reserving the seat failed, so try again later. Let's try waiting 10 seconds!
-				try {
-					Thread.sleep(10000);
-				} catch (InterruptedException except) {
-					// do nothing
-				}
-				Queue q = QueueFactory.getDefaultQueue();
-				q.add(TaskOptions.Builder.withUrl("/worker"));	
-			}
 		}
+		
+		// Re-schedule this task
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException except) {
+			// do nothing
+		}
+		Queue q = QueueFactory.getDefaultQueue();
+		q.add(TaskOptions.Builder.withUrl("/worker"));	
 	}		
 }
