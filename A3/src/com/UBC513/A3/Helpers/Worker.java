@@ -45,7 +45,7 @@ public class Worker {
 		
 		// Re-schedule this task
 		try {
-			Thread.sleep(3000);
+			Thread.sleep(1000);
 		} catch (InterruptedException except) {
 			// do nothing
 		}

@@ -1,5 +1,9 @@
 package com.UBC513.A3.Helpers;
 
+import java.util.ConcurrentModificationException;
+
+import javax.servlet.http.HttpServletRequest;
+
 import com.UBC513.A3.Data.Request;
 import com.UBC513.A3.Data.Seat;
 import com.UBC513.A3.Data.SeatReservation;
@@ -10,6 +14,7 @@ import com.google.appengine.api.datastore.EntityNotFoundException;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
 import com.google.appengine.api.datastore.Transaction;
+import com.google.appengine.api.datastore.TransactionOptions;
 import com.google.appengine.api.taskqueue.Queue;
 import com.google.appengine.api.taskqueue.QueueFactory;
 import com.google.appengine.api.taskqueue.TaskOptions;
@@ -77,12 +82,13 @@ public class HandleRequests {
 		
 		// Re-schedule this task
 		try {
-			Thread.sleep(3000);
+			Thread.sleep(1000);
 		} catch (InterruptedException except) {
 			// do nothing
 		}
 		Queue q = QueueFactory.getDefaultQueue();
 		q.add(TaskOptions.Builder.withUrl("/request"));	
 	}	
+	
 	
 }

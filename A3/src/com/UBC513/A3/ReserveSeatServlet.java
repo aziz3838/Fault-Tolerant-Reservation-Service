@@ -25,12 +25,10 @@ public class ReserveSeatServlet extends HttpServlet {
 			flights[flightIdx] = req.getParameter("Flight" + flightIdx);
 			seatIDs[flightIdx] = req.getParameter("SeatID" + flightIdx);
 		}
-		
 		String waitlist = req.getParameter("waitlist");
 		boolean waitingListOk = false;
 		if(waitlist != null)
 			waitingListOk = true;
-		
 		String FirstName = req.getParameter("FirstName");
 		String LastName = req.getParameter("LastName");
 		
@@ -45,7 +43,7 @@ public class ReserveSeatServlet extends HttpServlet {
 			System.out.println("Created Request");
 			
 		} catch (Exception e1) {
-			// Retry can be implemented here
+			forwardTo = "/reserveSeatError.jsp";
 		}
 		
 		// redirect to final page

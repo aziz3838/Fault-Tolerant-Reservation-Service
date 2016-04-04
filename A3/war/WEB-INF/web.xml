@@ -39,6 +39,11 @@
 		<servlet-class>com.UBC513.A3.RequestServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
+	
+	<servlet>
+		<servlet-name>Status</servlet-name>
+		<servlet-class>com.UBC513.A3.StatusServlet</servlet-class>
+	</servlet>
 
 	<!-- Mappings ================================================================-->
 	<!-- Main Website Mappings -->
@@ -79,6 +84,12 @@
 	<servlet-mapping>
 		<servlet-name>Request</servlet-name>
 		<url-pattern>/request</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Status Mapping -->
+	<servlet-mapping>
+		<servlet-name>Status</servlet-name>
+		<url-pattern>/status/*</url-pattern>
 	</servlet-mapping>
 	
 	<welcome-file-list>
