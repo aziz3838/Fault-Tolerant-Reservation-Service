@@ -9,6 +9,7 @@ This assignments require writing code in Java language. The code is a web applic
 ### Team Members ###
 
 * Aziz Alghamdi
+* Ken Mansfield
 
 ### A2 ###
 ### Task #1: Implement Transaction Retries ###
@@ -46,4 +47,4 @@ This assignments require writing code in Java language. The code is a web applic
 
 ### Version Control ###
 
-* Git was used (BitBucket). It is easier to see the changes I made through diffs.
+* Git was used (GitHub). It is easier to see the changes we made through diffs.
