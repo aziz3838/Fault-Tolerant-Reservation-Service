@@ -1,4 +1,4 @@
-# README #
+# Fault Tolerant Flight Reservation Service #
 
 This repository is for the practical aspect of the Fault Tolerance graduate course at UBC.
 
